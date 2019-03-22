@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/mipmap-xhdpi_splash.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/mipmap-xhdpi/splash.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/xml_network_security_config.xml.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/xml/network_security_config.xml"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/drawable_splash.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/drawable/splash.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/drawable_launch_background.xml.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/drawable/launch_background.xml"
+    },
+    {
+        "merged": "/Users/luopan/flutterSpaces/flutter_sixteenhome/build/app/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/luopan/flutterSpaces/flutter_sixteenhome/android/app/src/main/res/layout/activity_main.xml"
+    }
+]

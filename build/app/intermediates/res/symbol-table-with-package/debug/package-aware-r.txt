@@ -1,0 +1,8 @@
+com.example.flutter_sixteenhome
+drawable launch_background
+drawable splash
+layout activity_main
+mipmap ic_launcher
+mipmap splash
+style LaunchTheme
+xml network_security_config
