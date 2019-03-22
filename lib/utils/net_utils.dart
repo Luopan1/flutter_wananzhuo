@@ -47,7 +47,7 @@ class NetUtils {
   }
 
   static Future getData(String url, Function callBack,
-      {Map<String, dynamic> params}) async {
+      {Map<String, dynamic> params,CancelToken cancleToken}) async {
     dio
         .get(url, queryParameters: params, options: setHeaders())
         .then((response) {

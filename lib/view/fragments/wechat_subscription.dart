@@ -5,6 +5,7 @@ import 'package:flutter_sixteenhome/entity/wechat_data.dart';
 import 'package:flutter_sixteenhome/utils/WeChatData.dart';
 import 'package:flutter_sixteenhome/utils/log_utils.dart';
 import 'package:flutter_sixteenhome/utils/net_utils.dart';
+import 'package:flutter_sixteenhome/utils/print_utils.dart';
 import 'package:flutter_sixteenhome/utils/translations.dart';
 import 'package:flutter_sixteenhome/view/webview.dart';
 
@@ -24,29 +25,36 @@ class _WeChatSubscriptionState extends State<WeChatSubscription>
   int currentPage = 1;
   GlobalKey<EasyRefreshState> _easyRefreshKey;
   GlobalKey<RefreshHeaderState> _headerKey;
-
   GlobalKey<RefreshFooterState> _footerKey;
   bool canLoadMore = true;
-
   int currentWebChatId = 0;
+  ScrollController _scrollController;
 
   @override
   void initState() {
     _easyRefreshKey = GlobalKey<EasyRefreshState>();
     _headerKey = GlobalKey<RefreshHeaderState>();
     _footerKey = GlobalKey<RefreshFooterState>();
+    _scrollController = ScrollController();
+
     _getWeChatList();
     super.initState();
   }
 
+  @override
+  void dospose() {
+    _scrollController.dispose();
+  }
+
   _getWeChatList() {
     String url = "wxarticle/chapters/json";
-    NetUtils.getData(url, (Map<String, dynamic> response) {
+    NetUtils.getData(url, (
+      Map<String, dynamic> response,
+    ) {
       WeChatData weChatData = WeChatData.fromMap(response);
       currentWebChatId = weChatData.data[0].id;
       weChatList.addAll(weChatData.data);
       _getWeChatData(currentWebChatId, false);
-
       setState(() {});
     });
   }
@@ -55,7 +63,9 @@ class _WeChatSubscriptionState extends State<WeChatSubscription>
   _getWeChatData(int id, bool needClear) {
     String url = "wxarticle/list/$id/$currentPage/json";
     LogUtils.i("_getWeChatDataId+url", url);
-    NetUtils.getData(url, (Map<String, dynamic> response) {
+    NetUtils.getData(url, (
+      Map<String, dynamic> response,
+    ) {
       LogUtils.i("_getWeChatData", response.toString());
       if (response["errorCode"] == 0) {
         wechatData = WechatData.fromMap(response);
@@ -126,17 +136,15 @@ class _WeChatSubscriptionState extends State<WeChatSubscription>
     return Center(
         child: InkWell(
       onTap: () {
-        weChatDataLists.clear();
-        setState(() {
-          if (currentIndex == index) {
-            nameContainerColor = Colors.blue;
-            textColor = Colors.white;
-          }
-        });
+        if (currentWebChatId == weChatList[i].id) {
+          return;
+        }
+        _scrollController.animateTo(0.0, duration: Duration(milliseconds: 200), curve: Curves.fastOutSlowIn);
         currentIndex = index;
         currentWebChatId = weChatList[i].id;
         _getWeChatData(currentWebChatId, true);
         currentPage = 1;
+        setState(() {});
       },
       child: Container(
         alignment: Alignment.center,
@@ -203,6 +211,7 @@ class _WeChatSubscriptionState extends State<WeChatSubscription>
       refreshHeader: header,
       refreshFooter: footer,
       child: ListView.builder(
+        controller: _scrollController,
         itemBuilder: (context, int index) {
           return weChatData(context, index);
         },
@@ -221,7 +230,8 @@ class _WeChatSubscriptionState extends State<WeChatSubscription>
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return WebViewPage(weChatDataLists[i].link, weChatDataLists[i].title,weChatDataLists[i].collect,weChatDataLists[i].id);
+          return WebViewPage(weChatDataLists[i].link, weChatDataLists[i].title,
+              weChatDataLists[i].collect, weChatDataLists[i].id);
         }));
       },
       child: Container(
@@ -242,12 +252,12 @@ class _WeChatSubscriptionState extends State<WeChatSubscription>
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top:4.0),
+              margin: EdgeInsets.only(top: 4.0),
               alignment: Alignment.centerLeft,
               child: Text("作者:${weChatDataLists[i].chapterName}"),
             ),
             Container(
-              margin: EdgeInsets.only(top:8.0),
+              margin: EdgeInsets.only(top: 8.0),
               child: Row(
                 children: <Widget>[
                   _buildTags(i),
