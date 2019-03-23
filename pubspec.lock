@@ -29,6 +29,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.2"
+  barcode_scan:
+    dependency: "direct main"
+    description:
+      name: barcode_scan
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.8"
   boolean_selector:
     dependency: transitive
     description:
@@ -232,7 +239,7 @@ packages:
       name: flutter_webview_plugin
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.0+2"
+    version: "0.3.1"
   front_end:
     dependency: transitive
     description:
